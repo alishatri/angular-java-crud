@@ -1,0 +1,27 @@
+<div class="container" style="padding: 1% 0% 0% 7%">
+  <h1 class="text-center">Our Products</h1>
+  <a style="margin-left: 1%;" class="btn btn-success" routerLink="/add">Add Products</a>
+  <div class="row">
+    <div class="card" *ngFor="let product of products" style="width: 15rem; margin: 2%;" >
+      <div class="card-body">
+        <img
+          src="../../assets/img/header.jpg.thumb.webp"
+          width="200px"
+          alt="Photo of Name"/>
+        <h5 class="card-title">{{ product.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ product.price }} $</h6>
+        <h6 class="card-subtitle mb-2 text-muted">In Stock {{ product.quantity }} items</h6>
+        <p class="card-text">{{ product.description }}</p>
+        <a
+          class="btn btn-primary"
+          routerLink="/edit/{{product.id}}" style="width: 40%;">
+          Edit
+      </a>
+        |
+        <button class="btn btn-danger" (click)="deleteProduct(product)" style="width: 50%;">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
